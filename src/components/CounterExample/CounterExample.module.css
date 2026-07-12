@@ -1,0 +1,6 @@
+.counterExample {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  height: 50px;
+}
