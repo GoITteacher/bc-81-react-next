@@ -1,0 +1,85 @@
+{
+  "React Array Render": {
+    "prefix": "react-array-render",
+    "body": [
+      "<ul>{array.map((item, i) => {",
+      "   return <li key={i}>",
+      "      <UserElement data={item}/>",
+      "   </li>",
+      "})}</ul>"
+    ],
+    "description": "Create Render Array"
+  },
+  "React Fetch In Component": {
+    "prefix": "react-fetch-effect",
+    "body": [
+      "useEffect(() => {",
+      "   async function fetchData() {",
+      "      const data = await myFetchFunction();",
+      "      setData(data);",
+      "   }",
+      "   ",
+      "   fetchData();",
+      "}, []);"
+    ],
+    "description": "Create "
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import css from './${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}.module.css';",
+      "",
+      "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = () => {",
+      "  return (",
+      "    <div className={css['${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}']}>",
+      "      ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/};"
+    ],
+    "description": "React Functional Component"
+  },
+  "React Functional Component TS": {
+    "prefix": "rfct",
+    "body": [
+      "import css from './${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}.module.css';",
+      "",
+      "interface ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}Props{",
+      "",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = ({}:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}Props) => {",
+      "  return (",
+      "    <div className={css['${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}']}>",
+      "      ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/};"
+    ],
+    "description": "React Functional Component TS"
+  },
+  "React Client Component": {
+    "prefix": "rcc",
+    "body": [
+      "\"use client\"",
+      "import css from './${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}.module.css';",
+      "",
+      "interface ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}Props {}",
+      "",
+      "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = ({}:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}Props) => {",
+      "  return (",
+      "    <div className={css['${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}']}>",
+      "      ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/};"
+    ],
+    "description": "Next Functional Component"
+  }
+}
