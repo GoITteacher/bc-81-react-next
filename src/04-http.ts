@@ -20,21 +20,51 @@ import axios from "axios";
 /* 🧩 Task 1 — модель поста
  * Опиши Post з полями id/title/body/tags/reactions/views/userId.
  */
-export type Post = any;
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+  tags: string[];
+  reactions: {
+    likes: number;
+    dislikes: number;
+  };
+  views: number;
+  userId: number;
+};
+
+interface GetPostsResponse {
+  posts: Post[];
+  total: number;
+  skip: number;
+  limit: number
+}
 
 /* 🧩 Task 2 — отримати всі пости
  * Типізуй відповідь від dummyjson.com/posts (posts, total, skip, limit).
  */
-export async function getAllPosts() {
-  const response = await axios.get("https://dummyjson.com/posts");
+export async function getAllPosts(): Promise<GetPostsResponse> {
+  const response = await axios.get<GetPostsResponse>("https://dummyjson.com/posts");
   return response.data;
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const data = await getAllPosts()
+  data.
+})
+
+// {
+//   "posts": ,
+//   "total": 251,
+//   "skip": 0,
+//   "limit": 30
+// }
 
 /* 🧩 Task 3 — отримати пост за id
  * Додай тип для поста і параметра postId без any.
  */
-export async function getPostById(postId): Promise<unknown> {
-  const response = await axios.get(`https://dummyjson.com/posts/${postId}`);
+export async function getPostById(postId: Post['id']): Promise<Post> {
+  const response = await axios.get<Post>(`https://dummyjson.com/posts/${postId}`);
   return response.data;
 }
 
@@ -56,7 +86,7 @@ export async function createPost(newPost: NewPost): Promise<any> {
  * Узагальни HttpResponse<T>, прибери any і додай код статусу.
  */
 export type HttpResponse<T> = {
-  data: any;
+  data: T;
   code: number;
 };
 

@@ -9,6 +9,33 @@
  */
 //!======================================================
 // union vs enum: union простіший і не генерує додатковий код; enum додає рантайм-об'єкт і зручний, коли потрібні посилання в JS-коді.
+
+
+enum Role {
+  Admin,
+  User,
+  Guest
+}
+console.log(Role[0]); //Admin
+let role1: Role;
+
+role1 = Role.Admin
+
+console.log(Role.Admin);
+
+type HTTPCodeType = 200 | 201 | 400 | 500;
+
+ enum HTTPCode {
+  Success = 200,
+  Created = 201,
+  BAdRequest = 400,
+  ServerError = 500
+}
+
+// if(beckend.status === HTTPCode.Created) {}
+
+type Status = 'pending' | 'fullfild' | 'rejected'
+
 //!======================================================
 // string vs number enums: рядкові уникють зворотного мапінгу; числові можуть автонумерувати, але вимагають обережності.
 //!======================================================
@@ -31,7 +58,7 @@ export const requestCode: unknown = 200;
  * Створи ролі admin/user/guest через union чи enum.
  * Типізуй поле role у користувача.
  */
-export type Role = any;
+// export type Role = any;
 
 export interface User {
   username: string;

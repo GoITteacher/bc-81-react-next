@@ -18,30 +18,42 @@
 /* 🧩 Task 1 — базовий проміс
  * Типізуй повідомлення, яке резолвиться через setTimeout.
  */
-export const getMessage = (): any => {
+
+
+
+export const getMessage = (): Promise<string> => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve("Hello!"), 500);
+    setTimeout(() => resolve('Hello'), 500);
   });
 };
+
+getMessage().then(data => console.log(data))
+
 
 /* 🧩 Task 2 — отримання користувача
  * Опиши тип користувача й поверни Promise з цим типом замість unknown.
  */
-export const getUser = (): Promise<unknown> => {
-  return new Promise((resolve) => {
-    resolve({ id: 1, name: "Alice" });
-  });
-};
+// interface User {
+//   id: number;
+//   name: string;
+// }
 
+
+// export const getUser = (): Promise<User> => {
+//   return new Promise((resolve) => {
+//     resolve({ id: 1, name: "Alice" });
+//   });
+// };
+// getUser().then(user => console.log(user.name))
 /* 🧩 Task 3 — список користувачів
  * Зроби масив типізованим і додай обмеження на поля.
  */
-export const getUsers = async (): Promise<any> => {
-  return [
-    { id: 1, name: "Alice" },
-    { id: 2, name: "Bob" },
-  ];
-};
+// export const getUsers = async (): Promise<User[]> => {
+//   return [
+//     { id: 1, name: "Alice" },
+//     { id: 2, name: "Bob" },
+//   ];
+// };
 
 /* 🧩 Task 4 — обробка помилки
  * Типізуй помилку як unknown, звузь усередині catch.
@@ -58,10 +70,25 @@ export const safeParse = async (json: string): Promise<any> => {
 /* 🧩 Task 5 — паралельні запити
  * Типізуй Promise.all так, щоб результати мали підказки без кастів.
  */
+
+interface User {
+  readonly id: number;
+  name: string;
+}
+interface Post {
+  readonly id: number;
+  title: string;
+}
+
+interface LoadDataResponse {
+  user: User;
+  posts: Post[];
+}
+
 export async function loadData(
-  userPromise: Promise<any>,
-  postsPromise: Promise<any>
-): Promise<any> {
+  userPromise: Promise<User>,
+  postsPromise: Promise<Post[]>
+): Promise<LoadDataResponse> {
   const [user, posts] = await Promise.all([userPromise, postsPromise]);
   return { user, posts };
 }
