@@ -1,13 +1,13 @@
 import css from "./Sidebar.module.css";
+import SidebarCard from "./SidebarCard/SidebarCard";
 
 const Sidebar = () => {
   return (
-    <aside className={css.sidebar}>
-      <p className={css.label}>Тут і зараз</p>
-      <p className={css.description}>
-        Декілька простих нагадувань, щоб зробити читання приємнішим.
-      </p>
-    </aside>
+    <div className={css["sidebar"]}>
+      <SidebarCard title="Card 1" desc="Desc 1" />
+      <SidebarCard title="Card 2" desc="Desc 2" />
+      <SidebarCard title="Card 3" desc="Desc 3" />
+    </div>
   );
 };
 

@@ -29,7 +29,7 @@
     "body": [
       "import css from './${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}.module.css';",
       "",
-      "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = () => {",
+      "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = ({}) => {",
       "  return (",
       "    <div className={css['${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}']}>",
       "      ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}",
