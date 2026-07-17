@@ -19,9 +19,9 @@ export default function App() {
       <CounterExample />
 
       <Fruits />
-      {/* <ArrayExample /> */}
-      {/* <ObjectExample /> */}
-      {/* <ModalExample /> */}
+      <ArrayExample />
+      <ObjectExample />
+      <ModalExample />
     </div>
   );
 }

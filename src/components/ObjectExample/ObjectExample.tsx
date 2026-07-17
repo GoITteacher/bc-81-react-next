@@ -1,4 +1,3 @@
-import { useState } from "react";
 import css from "./ObjectExample.module.css";
 
 interface Fruits {
@@ -9,31 +8,13 @@ interface Fruits {
 }
 
 const ObjectExample = () => {
-  const [fruits, setFruits] = useState<Fruits>({
-    apples: 0,
-    lemons: 0,
-    oranges: 0,
-    grapes: 0,
-  });
-
-  // const handleIncrementApple = () => {
-  //   setFruits({ ...fruits, apples: fruits.apples + 1 });
-  // };
-  // const handleIncrementLemon = () => {
-  //   setFruits({ ...fruits, lemons: fruits.lemons + 1 });
-  // };
-
-  const incrementFruits = (key: keyof Fruits) => {
-    setFruits({ ...fruits, [key]: fruits[key] + 1 });
-  };
-
   return (
     <div className={css["objectExample"]}>
-      <p>Apples: {fruits.apples}</p>
-      <p>Lemons: {fruits.lemons}</p>
+      <p>Apples: {0}</p>
+      <p>Lemons: {0}</p>
 
-      <button onClick={() => incrementFruits("apples")}>Apples++</button>
-      <button onClick={() => incrementFruits("lemons")}>Lemons++</button>
+      <button>Apples++</button>
+      <button>Lemons++</button>
     </div>
   );
 };
