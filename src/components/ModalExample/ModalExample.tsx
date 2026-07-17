@@ -4,11 +4,36 @@ import css from "./ModalExample.module.css";
 
 const ModalExample = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
   };
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   const closeModal = () => {
     setIsOpen(false);
   };
