@@ -1,9 +1,8 @@
-import { useState } from "react";
 import ArrayExample from "./ArrayExample/ArrayExample";
 import CounterExample from "./CounterExample/CounterExample";
 import Fruits from "./Fruits/Fruits";
 import Listener from "./Listener/Listener";
-import Modal from "./Modal/Modal";
+
 import ObjectExample from "./ObjectExample/ObjectExample";
 import ModalExample from "./ModalExample/ModalExample";
 
@@ -11,17 +10,22 @@ export default function App() {
   return (
     <div>
       {/* Прослуховувач */}
-      <Listener />
+      {/* <Listener /> */}
 
       {/* СТАН */}
+      {/* <CounterExample />
       <CounterExample />
-      <CounterExample />
-      <CounterExample />
+      <CounterExample /> */}
 
+      {/* Підняття стану */}
       <Fruits />
-      <ArrayExample />
-      <ObjectExample />
-      <ModalExample />
+
+      {/* Робота з масивом та обєктом */}
+      {/* <ArrayExample />
+      <ObjectExample /> */}
+
+      {/* Модальне вікно */}
+      {/* <ModalExample /> */}
     </div>
   );
 }

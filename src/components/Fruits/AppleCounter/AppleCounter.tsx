@@ -1,13 +1,14 @@
 import css from "./AppleCounter.module.css";
 
 interface AppleCounterProps {
-  incrementApple: () => void;
+  onIncrement: () => void;
+  apples: number;
 }
 
-const AppleCounter = ({ incrementApple }: AppleCounterProps) => {
+const AppleCounter = ({ onIncrement, apples }: AppleCounterProps) => {
   return (
     <div className={css["appleCounter"]}>
-      <button onClick={incrementApple}>Apple +</button>
+      <button onClick={onIncrement}>Apple ({apples}) +</button>
     </div>
   );
 };

@@ -1,13 +1,11 @@
 import css from "./LemonCounter.module.css";
-
 interface LemonCounterProps {
-  incrementLemon: () => void;
+  onIncrement: () => void;
 }
-
-const LemonCounter = ({ incrementLemon }: LemonCounterProps) => {
+const LemonCounter = ({ onIncrement }: LemonCounterProps) => {
   return (
     <div className={css["lemonCounter"]}>
-      <button onClick={incrementLemon}>Lemon +</button>
+      <button onClick={onIncrement}>Lemons +</button>
     </div>
   );
 };
