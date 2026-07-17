@@ -18,14 +18,14 @@ export default function App() {
       <CounterExample /> */}
 
       {/* Підняття стану */}
-      <Fruits />
+      {/* <Fruits /> */}
 
       {/* Робота з масивом та обєктом */}
-      {/* <ArrayExample />
-      <ObjectExample /> */}
+      {/* <ArrayExample /> */}
+      {/* <ObjectExample /> */}
 
       {/* Модальне вікно */}
-      {/* <ModalExample /> */}
+      <ModalExample />
     </div>
   );
 }
