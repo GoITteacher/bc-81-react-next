@@ -4,9 +4,21 @@
  * - Очистити інтервал при розмонтуванні компонента
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Timer() {
   const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      console.log("TICK");
+      setTime(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
   return <p>{time.toLocaleTimeString()}</p>;
 }

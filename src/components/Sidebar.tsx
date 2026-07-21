@@ -5,6 +5,7 @@
  * - Очистити слухач при розмонтуванні
  */
 
+import { useEffect, useState } from "react";
 import css from "./Sidebar.module.css";
 
 interface SidebarProps {
@@ -12,6 +13,32 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ onClose }: SidebarProps) {
+  const [count, setCount] = useState(1);
+
+  // useEffect(() => {
+  //   console.log("Додати прослуховувач");
+  //   function handleKeyDown(e: KeyboardEvent) {
+  //     console.log(e.code);
+  //     if (e.code === "Escape") {
+  //       onClose();
+  //     }
+  //   }
+  //   window.addEventListener("keydown", handleKeyDown);
+
+  //   return () => {
+  //     console.log("Видалити прослуховувач");
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("Mount Counter", count);
+
+  //   return () => {
+  //     console.log("Unmount Counter", count);
+  //   };
+  // }, [count]);
+
   return (
     <div className={css.wrapper}>
       <div className={css.sidebar}>
@@ -22,6 +49,8 @@ export default function Sidebar({ onClose }: SidebarProps) {
           Suscipit nisi aliquam voluptates accusamus repellat illo expedita
           necessitatibus laudantium animi quo?
         </p>
+        <p>{count}</p>
+        <button onClick={() => setCount(count + 1)}>Counter++</button>
       </div>
     </div>
   );
