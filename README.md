@@ -11,4 +11,6 @@
 - Залежні запити з `enabled`
 - Пагінація запитів
   - `placeholderData` та `keepPreviousData`
+
+  
   - Бібліотека [React Paginate](https://www.npmjs.com/package/react-paginate)
