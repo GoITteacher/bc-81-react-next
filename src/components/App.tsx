@@ -10,12 +10,23 @@ export default function App() {
   return (
     <>
       <OrderForm />
-      {/* <EventProposalForm />
+      <hr />
+      <EventProposalForm />
+      <hr />
+
       <GadgetRepairForm />
+      <hr />
+
       <ProductListingForm />
+      <hr />
+
       <SupportTicketForm />
+      <hr />
+
       <TravelQuoteForm />
-      <WorkshopForm /> */}
+      <hr />
+
+      <WorkshopForm />
     </>
   );
 }
