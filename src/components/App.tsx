@@ -9,24 +9,25 @@ import OrderForm from "./OrderForm";
 export default function App() {
   return (
     <>
-      <OrderForm />
+      {/* <OrderForm /> */}
       <hr />
+
       <EventProposalForm />
       <hr />
 
-      <GadgetRepairForm />
+      {/* <GadgetRepairForm /> */}
       <hr />
 
-      <ProductListingForm />
+      {/* <ProductListingForm /> */}
       <hr />
 
-      <SupportTicketForm />
+      {/* <SupportTicketForm /> */}
       <hr />
 
-      <TravelQuoteForm />
+      {/* <TravelQuoteForm /> */}
       <hr />
 
-      <WorkshopForm />
+      {/* <WorkshopForm /> */}
     </>
   );
 }
