@@ -11,17 +11,23 @@ export default function TaskForm({ onSuccess }: TaskFormProps) {
   const queryClient = useQueryClient();
 
   const { mutate, isPending } = useMutation({
+    mutationKey: ["add-task"],
     mutationFn: (taskData: NewTaskData) => addTask(taskData),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+      queryClient.invalidateQueries({
+        queryKey: ["tasks"],
+      });
       onSuccess();
     },
+    onError: () => {},
   });
 
   const handleSubmit = (formData: FormData) => {
-    mutate({
+    const data = {
       text: formData.get("text") as string,
-    });
+    };
+
+    mutate(data);
   };
 
   return (
