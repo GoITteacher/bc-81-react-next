@@ -8,6 +8,7 @@ import { useTasks } from "../../hooks/useTasks";
 
 export default function App() {
   const [query, setQuery] = useState("");
+
   const { tasks, isLoading } = useTasks(query);
   const [isOpenCreateModal, openCreateModal, closeCreateModal] = useModal();
   const [isOpenUpdateModal, openUpdateModal, closeUpdateModal] = useModal();
