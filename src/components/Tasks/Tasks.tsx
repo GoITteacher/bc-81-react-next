@@ -1,22 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
 import css from "./Tasks.module.css";
-import { getTasks } from "../../services/taskService";
-import { useState } from "react";
 import TaskList from "./TaskList/TaskList";
 import Modal from "./Modal/Modal";
 import TaskForm from "./TaskForm/TaskForm";
+import { useModal } from "../../hooks/useModal";
+import { useTasks } from "../../hooks/useTasks";
 
 const Tasks = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["tasks"],
-    queryFn: getTasks,
-  });
+  const [isOpen, openModal, closeModal] = useModal();
+  const [tasks, isLoading] = useTasks();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-
-  const closeModal = () => setIsModalOpen(false);
   return (
     <div className={css["container"]}>
       <header className={css.header}>
@@ -25,8 +17,8 @@ const Tasks = () => {
         </button>
       </header>
       {isLoading && <strong className={css.loading}>Loading tasks...</strong>}
-      {data && !isLoading && <TaskList tasks={data} />}
-      {isModalOpen && (
+      {tasks && !isLoading && <TaskList tasks={tasks} />}
+      {isOpen && (
         <Modal onClose={closeModal}>
           <TaskForm onSuccess={closeModal} />
         </Modal>

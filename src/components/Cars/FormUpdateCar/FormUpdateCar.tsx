@@ -1,26 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CreateCarBody, FuelType } from "../../../types/cars";
 import css from "./FormUpdateCar.module.css";
-import { updateCar } from "../../../services/carsService";
-
-interface UpdateCarMutatationBody {
-  id: string;
-  body: CreateCarBody;
-}
+import { useUpdateCar } from "../../../hooks/useUpdateCar";
 
 const FormUpdateCar = () => {
-  const queryClient = useQueryClient();
-
-  const { mutate } = useMutation({
-    mutationKey: ["update-car"],
-    mutationFn: ({ id, body }: UpdateCarMutatationBody) => updateCar(id, body),
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
-    },
-  });
-
+  const mutate = useUpdateCar();
   const handleSubmit = (formData: FormData) => {
     const id = formData.get("id") as string;
     const newCar: CreateCarBody = {

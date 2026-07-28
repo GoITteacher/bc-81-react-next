@@ -1,19 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
 import CarItem from "./CarItem/CarItem";
 import css from "./CarList.module.css";
-import { getCars } from "../../../services/carsService";
+import { useCars } from "../../../hooks/useCars";
 
 const CarList = () => {
-  const carsQuery = useQuery({
-    queryKey: ["cars"],
-    queryFn: () => getCars({}),
-  });
+  const [arr, isLoading, error] = useCars();
 
-  const carsArr = carsQuery.data?.items || [];
+  if (isLoading) {
+    return <p>Loading cars ...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading</p>;
+  }
 
   return (
     <ul className={css["car-list"]}>
-      {carsArr.map((car) => {
+      {arr.map((car) => {
         return <CarItem car={car} key={car._id} />;
       })}
     </ul>

@@ -1,25 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CreateCarBody, FuelType } from "../../../types/cars";
 import css from "./FormCreateCar.module.css";
-import { createCar } from "../../../services/carsService";
-import toast from "react-hot-toast";
+import { useCreateCar } from "../../../hooks/useCreateCar";
 
 const FormCreateCar = () => {
-  const queryClient = useQueryClient();
-
-  const createCarMutation = useMutation({
-    mutationKey: ["new-car"],
-    mutationFn: (newCar: CreateCarBody) => createCar(newCar),
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
-      toast.success("success");
-    },
-    onError: (data) => {
-      toast.error(data.message);
-    },
-  });
+  const mutate = useCreateCar();
 
   const handleSubmit = async (formData: FormData) => {
     const newCar: CreateCarBody = {
@@ -33,7 +17,7 @@ const FormCreateCar = () => {
       description: formData.get("description") as string,
     };
 
-    createCarMutation.mutate(newCar);
+    mutate(newCar);
   };
 
   return (
