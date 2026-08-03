@@ -1,0 +1,16 @@
+.page {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.page h1 {
+  margin-bottom: 1.4rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background:
+    radial-gradient(420px 180px at 10% 0%, rgba(255, 255, 255, 0.88), transparent 70%),
+    linear-gradient(135deg, var(--paper-soft), var(--paper-warm));
+  box-shadow: var(--shadow);
+}

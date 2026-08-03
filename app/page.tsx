@@ -22,6 +22,12 @@ export default function Home() {
           <li>Маршрути формуються з файлової системи.</li>
           <li>Рендеринг обирається під задачу: SSR, SSG або CSR.</li>
         </ol>
+        <img
+          src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/c006119b-2d3c-44bd-b80c-a8acb8e5513fimage.jpeg"
+          alt="image"
+          width={800}
+          style={{ margin: "50px auto" }}
+        />
       </section>
 
       <section>
