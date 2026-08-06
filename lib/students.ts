@@ -7,6 +7,8 @@ export const getStudents = async () => {
 };
 
 export const getStudentById = async (id: string) => {
-  const res = await globalApi.get<Student>(`/public/students/${id}`);
-  return res.data;
+  try {
+    const res = await globalApi.get<Student>(`/public/students/${id}`);
+    return res.data;
+  } catch {}
 };
