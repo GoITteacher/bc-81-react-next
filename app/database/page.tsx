@@ -1,9 +1,9 @@
-import css from "./page.module.css";
+import css from "./Page.module.css";
 
 const Page = () => {
   return (
     <div className={css["page"]}>
-      <h1>HOME PAGE</h1>
+      <h1>Оберіть колекцію з даними</h1>
     </div>
   );
 };

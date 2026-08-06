@@ -13,7 +13,7 @@ const Page = async () => {
         {students.map((el) => {
           return (
             <li>
-              <Link href={`/students/${el._id}`}>
+              <Link href={`/database/students/${el._id}`}>
                 {el.firstName} {el.lastName}
               </Link>
             </li>

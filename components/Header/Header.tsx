@@ -7,10 +7,9 @@ const Header = () => {
       <nav className={css["nav"]}>
         <ul className={css["list"]}>
           <li>
-            <Link href="/students">Students</Link>
-            <Link href="/cars">Cars</Link>
-            <Link href="/users">Users</Link>
-            <Link href="/books/all">Books</Link>
+            <Link href="/">Home</Link>
+            <Link href="/fullstack">Full Stack</Link>
+            <Link href="/database">Data Base</Link>
           </li>
         </ul>
       </nav>
