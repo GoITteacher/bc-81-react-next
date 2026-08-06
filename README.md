@@ -12,23 +12,4 @@
 
 - Вкладені layout
 
-- Паралельні маршрути (слоти)
-
 https://otto-zimmermann.store/
-
-```text
-app/
-├── inbox/
-│   ├── layout.tsx
-│   ├── @main/
-│   │   └── default.tsx          ← контент
-│   └── @sidebar/
-│       ├── page.tsx          ← сайдбар
-│       ├── filters/
-│       │   └── page.tsx      ← фільтри
-│       ├── folders/
-│       │   └── page.tsx      ← шось якісь папки
-│       └── settings/
-│           └── page.tsx      ← налаштування
-
-```
