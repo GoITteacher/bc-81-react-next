@@ -1,0 +1,27 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.item {
+  display: block;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  border: 1px solid rgba(27, 26, 26, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(244, 179, 95, 0.12);
+}
+
+.value {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.label {
+  color: #6d6258;
+  font-size: 0.8rem;
+}

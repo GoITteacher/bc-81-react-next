@@ -7,7 +7,7 @@ interface GetBooksParams {
   desc?: string;
 }
 
-export const getBooksByTags = async (params: GetBooksParams) => {
+export const getBooks = async (params?: GetBooksParams) => {
   const res = await globalApi.get<GetBooksResponse>("/public/books", {
     params,
   });

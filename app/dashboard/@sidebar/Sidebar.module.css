@@ -1,0 +1,51 @@
+.sidebar {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 22px;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  background: var(--paper-card);
+}
+
+.title {
+  margin-bottom: 6px;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+.text {
+  margin-bottom: 24px;
+  color: #6d6258;
+  font-size: 0.92rem;
+}
+
+.nav {
+  display: grid;
+  gap: 10px;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--ink);
+  font-weight: 700;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.link::after {
+  display: none;
+}
+
+.link:hover {
+  border-color: var(--ink);
+  background: var(--paper-deep);
+  color: var(--ink);
+}
