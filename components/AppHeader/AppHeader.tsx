@@ -8,18 +8,6 @@ export default function AppHeader() {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
-          <Link href="/products">Products</Link>
-        </li>
-        <li>
-          <Link href="/recipes">Recipes</Link>
-        </li>
-        <li>
-          <Link href="/quotes">Quotes</Link>
-        </li>
-        <li>
-          <Link href="/todos">Todos</Link>
-        </li>
       </ul>
       <hr />
     </header>

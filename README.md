@@ -11,8 +11,6 @@
   - винесли @modal з (public routes) – щоб працювало
   - перезапустили проєкт – обов’язково.
 
-[Dummy Json Server](https://dummyjson.com/docs)
-
 ```text
 app/
 ├── inbox/
