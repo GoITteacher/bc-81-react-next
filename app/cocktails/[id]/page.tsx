@@ -8,6 +8,40 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+export const generateMetadata = async ({ params }: Props) => {
+  const { id } = await params;
+  const details = await getCocktailDetails(id);
+
+  const metadata: Metadata = {
+    title: details.drink,
+    description: details.description,
+
+    openGraph: {
+      title: details.drink,
+      description: details.description,
+      images: [
+        {
+          url: details.drinkThumb,
+          alt: details.drink,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      url: `http://localhost:3000/cocktails/${id}`,
+      type: "article",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: details.drink,
+      description: details.description,
+      images: details.drinkThumb,
+    },
+  };
+
+  return metadata;
+};
+
 const Page = async ({ params }: Props) => {
   const { id } = await params;
   const details = await getCocktailDetails(id);
@@ -20,7 +54,7 @@ const Page = async ({ params }: Props) => {
 
       <section className={styles.hero}>
         <div className={styles.media}>
-          <img
+          <Image
             className={styles.image}
             src={details.drinkThumb}
             width={560}

@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+export const metadata: Metadata = {
+  title: "Cocktails Page",
+  description: "This is Cocktails Page",
+  keywords: ["item", "store", "products", "cocktails"],
+};
+
 const Page = async () => {
   const cocktails = await getRandomCocktails();
   return (
@@ -32,12 +38,14 @@ const Page = async () => {
               <li key={el._id} className={styles.card}>
                 <Link className={styles.cardLink} href={`/cocktails/${el._id}`}>
                   <div className={styles.cardMedia}>
-                    <img
+                    <Image
                       className={styles.cardImage}
                       src={el.drinkThumb}
-                      alt={el.drink}
-                      fill
+                      alt="test"
+                      width={100}
+                      height={500}
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                   <div className={styles.cardBody}>

@@ -1,5 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./page.module.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home Page",
+  description: "This is Home Page",
+  keywords: ["item", "store", "products", "cocktails"],
+};
 
 export default function Home() {
   return (
@@ -10,12 +18,22 @@ export default function Home() {
           Discover beautiful products at a glance
         </h1>
 
+        <div className={styles.heroImageWrap}>
+          <Image
+            className={styles.heroImage}
+            src="/pepegym.jpeg"
+            alt="awdawd"
+            priority
+            fill
+          />
+        </div>
+
         <p className={styles.subtitle}>
           Browse curated categories, inspect detailed descriptions, and learn
           how TanStack Query keeps everything snappy.
         </p>
         <div className={styles.actions}>
-          <Link className={styles.primaryAction} href="/products">
+          <Link className={styles.primaryAction} href="/cocktails">
             Explore products
           </Link>
           <a
