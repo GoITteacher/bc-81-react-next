@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CocktailDetails } from "@/lib/types/cocktail";
+import { CocktailDetails } from "@/types/cocktail";
 
 interface Cocktail {
   _id: string;
