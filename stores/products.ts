@@ -1,5 +1,6 @@
 import { Product } from "@/types/products";
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface ProductsStore {
   wishlist: Product[];
@@ -14,57 +15,64 @@ interface ProductsStore {
   clearBucket: () => void;
 }
 
-export const useProductsStore = create<ProductsStore>()((setStore) => {
-  return {
-    wishlist: [],
-    bucket: [],
+export const useProductsStore = create<ProductsStore>()(
+  persist(
+    (setStore) => {
+      return {
+        wishlist: [],
+        bucket: [],
 
-    addToWishList: (product: Product) => {
-      setStore((store) => {
-        return {
-          wishlist: [...store.wishlist, product],
-        };
-      });
-    },
+        addToWishList: (product: Product) => {
+          setStore((store) => {
+            return {
+              wishlist: [...store.wishlist, product],
+            };
+          });
+        },
 
-    removeFromWishList: (id: string) => {
-      setStore((store) => {
-        return {
-          wishlist: store.wishlist.filter((el) => el._id !== id),
-        };
-      });
-    },
+        removeFromWishList: (id: string) => {
+          setStore((store) => {
+            return {
+              wishlist: store.wishlist.filter((el) => el._id !== id),
+            };
+          });
+        },
 
-    clearWishList: () => {
-      setStore(() => {
-        return {
-          wishlist: [],
-        };
-      });
-    },
+        clearWishList: () => {
+          setStore(() => {
+            return {
+              wishlist: [],
+            };
+          });
+        },
 
-    addToBucket: (product: Product) => {
-      setStore((store) => {
-        return {
-          bucket: [...store.bucket, product],
-        };
-      });
-    },
+        addToBucket: (product: Product) => {
+          setStore((store) => {
+            return {
+              bucket: [...store.bucket, product],
+            };
+          });
+        },
 
-    removeFromBucket: (id: string) => {
-      setStore((store) => {
-        return {
-          bucket: store.bucket.filter((el) => el._id !== id),
-        };
-      });
-    },
+        removeFromBucket: (id: string) => {
+          setStore((store) => {
+            return {
+              bucket: store.bucket.filter((el) => el._id !== id),
+            };
+          });
+        },
 
-    clearBucket: () => {
-      setStore(() => {
-        return {
-          bucket: [],
-        };
-      });
+        clearBucket: () => {
+          setStore(() => {
+            return {
+              bucket: [],
+            };
+          });
+        },
+      };
     },
-  };
-});
+    {
+      name: "products",
+    }
+  )
+);
