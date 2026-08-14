@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { checkServerSession } from "./lib/serverApi";
-import { parse } from "cookie";
+import { parseCookie } from "cookie";
 
 const privateRoutes = ["/tasks", "/news", "/notes"];
 
@@ -37,7 +37,7 @@ export async function proxy(request: NextRequest) {
       const cookieArr = Array.isArray(setCookies) ? setCookies : [setCookies];
 
       for (const cookie of cookieArr) {
-        const parsedCookie = parse(cookie);
+        const parsedCookie = parseCookie(cookie);
 
         const options = {
           expires: parsedCookie.Expires

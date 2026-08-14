@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { globalApi } from "../../globalApi";
 import { cookies } from "next/headers";
-import { parse } from "cookie";
+import { parseCookie } from "cookie";
 import { AxiosError } from "axios";
 
 export const POST = async (request: NextRequest) => {
@@ -16,7 +16,7 @@ export const POST = async (request: NextRequest) => {
       const cookieArr = Array.isArray(setCookies) ? setCookies : [setCookies];
 
       for (const cookie of cookieArr) {
-        const parsedCookie = parse(cookie);
+        const parsedCookie = parseCookie(cookie);
 
         const options = {
           expires: parsedCookie.Expires
