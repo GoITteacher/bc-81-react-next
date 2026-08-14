@@ -1,14 +1,18 @@
 "use client";
 import { login } from "@/lib/auth";
 import css from "./LoginForm.module.css";
+import { useAuthStore } from "@/stores/authStore";
 
 const LoginForm = () => {
+  const setUser = useAuthStore((s) => s.setUser);
+
   const handleSubmit = async (formData: FormData) => {
     const body = {
       email: formData.get("email") as string,
       password: formData.get("password") as string,
     };
-    await login(body);
+    const res = await login(body);
+    setUser(res.user);
   };
 
   return (
