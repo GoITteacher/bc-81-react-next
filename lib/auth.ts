@@ -1,6 +1,7 @@
 import { AuthResponse, LoginBody, RegisterBody } from "@/types/auth";
 import { nextApi } from "./nextApi";
 import { User } from "@/types/user";
+import axios from "axios";
 
 export const login = async (data: LoginBody) => {
   const res = await nextApi.post<AuthResponse>("/auth/login", data);
@@ -24,4 +25,8 @@ export const getMe = async () => {
 export const logout = async () => {
   const res = await nextApi.post("/auth/logout");
   return res;
+};
+
+export const updateAvatar = async (file: File) => {
+  console.log(file);
 };

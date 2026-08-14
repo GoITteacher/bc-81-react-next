@@ -4,6 +4,8 @@ import { nextApi } from "./nextApi";
 export const checkServerSession = async () => {
   const cookiStore = await cookies();
 
+  console.log("COOKIE", cookiStore.toString());
+
   const res = await nextApi.get("/auth/session", {
     headers: {
       Cookie: cookiStore.toString(),

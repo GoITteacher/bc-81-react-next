@@ -55,6 +55,8 @@ export const POST = async (request: NextRequest) => {
     return NextResponse.json({ succes: false });
   } catch (err) {
     const error = err as AxiosError<{ message: string }>;
+    console.log(error.response?.data);
+
     return NextResponse.json(
       {
         error: error.response?.data.message || error.message,
