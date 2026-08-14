@@ -10,10 +10,15 @@ const LoginForm = () => {
     };
     await login(body);
   };
+
   return (
     <form className={css["loginForm"]} action={handleSubmit}>
-      <input type="email" />
-      <input type="password" />
+      <input type="email" name="email" defaultValue={"bc81@example.com"} />
+      <input
+        type="password"
+        name="password"
+        defaultValue={"bc81@example.com"}
+      />
       <button type="submit">Login</button>
     </form>
   );
